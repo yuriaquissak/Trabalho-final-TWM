@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Be the Hero",
-    "slug": "BeTheHero",
+    "name": "The Outlet",
+    "slug": "TheOutlet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#E02041"
+      "backgroundColor": "#FF0000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

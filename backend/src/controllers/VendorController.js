@@ -4,9 +4,9 @@ const generateUniqueId = require('../utils/generateUniqueId')
 
 module.exports = {
     async index(request, response) {
-        const ongs = await connection('ongs').select('*');
+        const vendors = await connection('vendors').select('*');
     
-        return response.json(ongs);
+        return response.json(vendors);
     },
 
     async create(request, response) {
@@ -14,7 +14,7 @@ module.exports = {
     
         const id = generateUniqueId();
 
-        await connection('ongs').insert({
+        await connection('vendors').insert({
             id,
             name,
             email,

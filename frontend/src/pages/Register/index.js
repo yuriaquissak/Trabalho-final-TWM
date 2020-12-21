@@ -2,7 +2,7 @@ import React, { useState } from'react';
 import './style.css';
 import { Link, useHistory } from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
-import logoimg from "../../assets/logo.svg";
+import logoimg from "../../assets/logo.jpeg";
 import api from '../../services/api'
 
 export default function Register() {
@@ -14,7 +14,7 @@ export default function Register() {
 
     const history = useHistory();
 
-    async function handleResgister(e) {
+    async function handleRegister(e) {
         e.preventDefault();
 
         const data = {
@@ -24,7 +24,7 @@ export default function Register() {
             city,
             uf
         };
-        try { const response = await api.post('ongs', data);
+        try { const response = await api.post('vendors', data);
         alert(`Seu ID de acesso: ${response.data.id}`)
         history.push('/');
         } catch(err) {
@@ -35,7 +35,7 @@ export default function Register() {
         <div className="register-container">
             <div className="content">
                 <section>
-                    <img src={logoimg} alt="Be The Hero" />
+                    <img src={logoimg} alt="The Outlet" />
                     <h1>Cadastro</h1>
                     <p>Faça seu cadastro</p>
                     <Link className="back-link" to="/">
@@ -43,11 +43,11 @@ export default function Register() {
                         Não Tenho Cadastro
                     </Link>
                 </section>
-                <form onSubmit={handleResgister}>  
-                    <input placeholder="Nome da Ong" 
+                <form onSubmit={handleRegister}>  
+                    <input placeholder="Nome da vendedor" 
                     value={name}
                     onChange={e => setName(e.target.value)}/>
-                    <input type="email" placeholder="Email da Ong"
+                    <input type="email" placeholder="Email da vendedor"
                     value={email}
                     onChange={e => setEmail(e.target.value)} />
                     <input placeholder="Whatsapp"

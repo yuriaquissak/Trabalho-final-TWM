@@ -31,21 +31,21 @@ export default StyleSheet.create({
         lineHeight: 24,
         color: '#737380'
     },
-    incidentList: {
+    productList: {
         marginTop: 32,
     },
-    incident: {
+    product: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#FFF',
         marginBottom: 16,
     },
-    incidentProperty: {
+    productProperty: {
         fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold'
     },
-    incidentValue: {
+    productValue: {
         marginTop: 8,
         fontSize: 15,
         marginBottom: 24,
@@ -57,9 +57,14 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     detailsButtonText: {
-        color: '#e02041',
+        color: '#FF0000',
         fontSize: 15,
         fontWeight: 'bold'
+    },
+    form: {
+        backgroundColor: '#FFF',
+        fontSize: 20,
+        marginBottom: 10
     }
 
 });

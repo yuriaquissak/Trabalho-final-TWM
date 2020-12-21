@@ -1,14 +1,14 @@
 const connection = require('../database/connection');
-const { index } = require('./OngController');
+const { index } = require('./VendorController');
 
 module.exports = {
     async index(request, response) {
-        const ong_id = request.headers.authorization;
+        const vendor_id = request.headers.authorization;
 
-        const incidents = await connection('incidents')
-        .where('ong_id', ong_id)
+        const products = await connection('products')
+        .where('vendor_id', vendor_id)
         .select('*');
 
-        return response.json(incidents);
+        return response.json(products);
     }
 }

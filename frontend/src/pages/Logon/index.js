@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import heroesimg from '../../assets/heroes.png';
-import logoimg from '../../assets/logo.svg'
+import logoimg from '../../assets/logo.jpeg'
 import {FiLogIn} from 'react-icons/fi'
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
@@ -14,8 +13,8 @@ export default function Logon() {
         e.preventDefault();
         try {
             const response = await api.post('sessions', { id })
-            localStorage.setItem('ongId', id)
-            localStorage.setItem('ongName', response.data.name)
+            localStorage.setItem('vendorId', id)
+            localStorage.setItem('vendorName', response.data.name)
             history.push('/profile')
         } catch(err) {
             alert('falha no login, tente novamente')
@@ -25,7 +24,7 @@ export default function Logon() {
     return (
         <div className="logon-container">
             <section className="form">
-                <img src={logoimg} alt="Be The Hero"/>
+                <img src={logoimg} alt="The Outlet"/>
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu Logon</h1>
 
@@ -39,7 +38,7 @@ export default function Logon() {
                     </Link>
                 </form>
             </section>  
-            <img src={heroesimg} alt="Heroes"/>
+            
         </div>
     );
 }

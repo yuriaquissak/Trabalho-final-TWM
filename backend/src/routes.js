@@ -1,13 +1,13 @@
 const express = require('express');
-const OngController = require('./controllers/OngController');
-const IncidentController = require ('./controllers/IncidentController');
+const VendorController = require('./controllers/VendorController');
+const ProductController = require ('./controllers/ProductController');
 const ProfileController = require('./controllers/ProfileController');
 const SessionController = require('./controllers/SessionController');
 const routes = express.Router();
 const { celebrate, Joi, Segments } = require('celebrate');
 
-routes.get('/ongs', OngController.index)
-routes.post('/ongs', celebrate({
+routes.get('/vendors', VendorController.index)
+routes.post('/vendors', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().required().email(),
@@ -15,7 +15,7 @@ routes.post('/ongs', celebrate({
         city: Joi.string().required(),
         uf: Joi.string().required().length(2),
     })
-}) , OngController.create)
+}) , VendorController.create)
 
 routes.get('/profile', celebrate({
     [Segments.HEADERS]: Joi.object({
@@ -24,23 +24,23 @@ routes.get('/profile', celebrate({
 }), ProfileController.index);
 
 
-routes.post('/incidents', celebrate({
+routes.post('/products', celebrate({
     [Segments.BODY]: Joi.object().keys({
         title: Joi.string().required(),
         description: Joi.string().required(),
         value: Joi.number().required(),
     })
-}), IncidentController.create);
-routes.get('/incidents', celebrate({
+}), ProductController.create);
+routes.get('/products', celebrate({
     [Segments.QUERY]: Joi.object().keys({
         page: Joi.number(),
     })
-}),IncidentController.index);
-routes.delete('/incidents:id', celebrate({
+}),ProductController.index);
+routes.delete('/products:id', celebrate({
     [Segments.PARAMS]: Joi.object().keys({
         id: Joi.number().required(),
     })
-}), IncidentController.delete)
+}), ProductController.delete)
 
 routes.post('/sessions', SessionController.create)
 

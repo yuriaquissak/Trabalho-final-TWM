@@ -5,14 +5,14 @@ module.exports = {
     async create(request, response) {
         const { id } = request.body;
 
-        const ong  = await connection('ongs')
+        const vendor  = await connection('vendors')
         .where('id', id)
         .select('name')
         .first();
 
-        if(!ong) {
-            return response.status(400).json({ error: 'No ong found with this id'});
+        if(!vendor) {
+            return response.status(400).json({ error: 'No vendor found with this id'});
         }
-        return response.json(ong);
+        return response.json(vendor);
     }
 }
